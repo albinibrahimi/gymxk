@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Part;
 use App\Models\Muscle;
 use Illuminate\Http\Request;
 
-class MuscleController extends Controller
+class PartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,10 +15,7 @@ class MuscleController extends Controller
      */
     public function index()
     {
-        $muscles = Muscle::latest()->paginate(5);
-
-        return view('index', compact('muscles'))
-        ->with('i', (request()->input('page',1) -1) *5);
+        //
     }
 
     /**
@@ -26,7 +25,8 @@ class MuscleController extends Controller
      */
     public function create()
     {
-        return view('create');
+        $muscles = Muscle::all();
+        return view('createpart', compact('muscles'));
     }
 
     /**
@@ -40,6 +40,7 @@ class MuscleController extends Controller
         $request->validate([
             'name' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
         ]);
    
         $input = $request->all();
@@ -51,35 +52,30 @@ class MuscleController extends Controller
             $input['image'] = "$profileImage";
         }
      
-        Muscle::create($input);
+        Part::create($input);
       
         return redirect()->route('index')
-                        ->with('success','Muscle created successfully.');
+                        ->with('success','Part created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Muscle  $muscle
+     * @param  \App\Models\Part  $part
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {   
-        $muscle = Muscle::find($id);
-
-        $parts = $muscle ->parts;
-
-        
-        return view('show', compact('parts'));
+    public function show(Part $part)
+    {
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Muscle  $muscle
+     * @param  \App\Models\Part  $part
      * @return \Illuminate\Http\Response
      */
-    public function edit(Muscle $muscle)
+    public function edit(Part $part)
     {
         //
     }
@@ -88,10 +84,10 @@ class MuscleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Muscle  $muscle
+     * @param  \App\Models\Part  $part
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Muscle $muscle)
+    public function update(Request $request, Part $part)
     {
         //
     }
@@ -99,12 +95,11 @@ class MuscleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Muscle  $muscle
+     * @param  \App\Models\Part  $part
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Muscle $muscle)
+    public function destroy(Part $part)
     {
         //
     }
 }
-

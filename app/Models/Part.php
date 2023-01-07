@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Muscle extends Model
+class Part extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name', 'image'
+        'name', 'image', 'muscleid'
     ];
 
-    public function parts()
+    public function muscle()
     {
-        return $this->hasMany(Part::class, 'muscleid');
+        return $this->belongsTo(Muscle::class);
     }
-
 }

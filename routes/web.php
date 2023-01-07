@@ -22,10 +22,10 @@ Route::get('/', 'MuscleController@index')->name('index');    //return view('welc
 
 Route::get('/create', 'MuscleController@create')->name('create');
 
-//Route::get('/createpart', 'PartController@create')->name('createpart');
+Route::get('/createpart', 'PartController@create')->name('createpart');
 
 Route::post('store/', 'MuscleController@store')->name('store');
 
-//Route::post('storepart/', 'PartController@store')->name('storepart');
+Route::post('storepart/', 'PartController@store')->name('storepart');
 
 Route::get('show/{id}', 'MuscleController@show')->name('show');
