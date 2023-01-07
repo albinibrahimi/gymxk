@@ -27,6 +27,7 @@
                 <img src="/images/{{ $part->image }}" width="500px">
             </div>
         </div>
+        <a class="btn btn-info" href="{{ route('addsession',$part->id) }}">Show</a>
         @endforeach
     </div>
 @endsection

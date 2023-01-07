@@ -29,3 +29,7 @@ Route::post('store/', 'MuscleController@store')->name('store');
 Route::post('storepart/', 'PartController@store')->name('storepart');
 
 Route::get('show/{id}', 'MuscleController@show')->name('show');
+
+Route::get('addsession/{id}', 'SessionController@index')->name('addsession');
+
+Route::post('storesession/{id}', 'SessionController@store')->name('storesession');
