@@ -10,7 +10,7 @@ class Session extends Model
     use HasFactory;
 
     protected $fillable = [
-        'weight', 'reps', 'partid','date'
+        'weight', 'reps', 'partid','date', 'userid'
     ];
     public $timestamps = false;
 

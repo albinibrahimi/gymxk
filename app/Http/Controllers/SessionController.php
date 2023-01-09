@@ -6,6 +6,7 @@ use App\Models\Session;
 use App\Models\Part;
 use App\Models\Muscle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use DB;
 
 class SessionController extends Controller
@@ -44,6 +45,7 @@ class SessionController extends Controller
         $input = $request->all();
         $input['partid'] = $id;
         $input['date'] = $date;
+        $input['userid'] = Auth::id();
         Session::create($input);
 
 
@@ -64,7 +66,10 @@ class SessionController extends Controller
 
     public function showsessions()
     {
-        $sessions = Session::all()->unique('date');
+        $sessions = DB::table('sessions')
+        ->where('userid','=',Auth::id())
+        ->get()
+        ->keyBy('date');
 
         return view('showsessions', compact('sessions'));
     }
@@ -75,6 +80,7 @@ class SessionController extends Controller
         ->join('parts', 'sessions.partid', '=', 'parts.id')
         ->select('sessions.*', 'parts.name','parts.image')
         ->where('date', '=', $date)
+        ->where('userid','=',Auth::id())
         ->get();
 
         return view('showsession', compact('session'));

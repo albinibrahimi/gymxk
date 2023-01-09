@@ -18,6 +18,7 @@ class CreateSessionsTable extends Migration
             $table->double('weight', 8, 2);
             $table->integer('reps');
             $table->integer('partid');
+            $table->integer('userid');
             $table->text('date');
         });
     }

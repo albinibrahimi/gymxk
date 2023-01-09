@@ -18,22 +18,24 @@ use App\Http\Controllers\MuscleController;
 //});
 
 
-Route::get('/', 'MuscleController@index')->name('index');    //return view('welcome');
+Route::get('/', 'MuscleController@index')->name('index')->middleware('auth');    //return view('welcome');
 
-Route::get('/create', 'MuscleController@create')->name('create');
+Route::get('/create', 'MuscleController@create')->name('create')->middleware('auth');;
 
-Route::get('/createpart', 'PartController@create')->name('createpart');
+Route::get('/createpart', 'PartController@create')->name('createpart')->middleware('auth');;
 
-Route::post('store/', 'MuscleController@store')->name('store');
+Route::post('store/', 'MuscleController@store')->name('store')->middleware('auth');;
 
-Route::post('storepart/', 'PartController@store')->name('storepart');
+Route::post('storepart/', 'PartController@store')->name('storepart')->middleware('auth');;
 
-Route::get('show/{id}', 'MuscleController@show')->name('show');
+Route::get('show/{id}', 'MuscleController@show')->name('show')->middleware('auth');;
 
-Route::get('addsession/{id}', 'SessionController@index')->name('addsession');
+Route::get('addsession/{id}', 'SessionController@index')->name('addsession')->middleware('auth');;
 
-Route::post('storesession/{id}', 'SessionController@store')->name('storesession');
+Route::post('storesession/{id}', 'SessionController@store')->name('storesession')->middleware('auth');;
 
-Route::get('showsessions/', 'SessionController@showsessions')->name('showsessions');
+Route::get('showsessions/', 'SessionController@showsessions')->name('showsessions')->middleware('auth');;
 
-Route::get('showsession/{date}', 'SessionController@showsession')->name('showsession');
+Route::get('showsession/{date}', 'SessionController@showsession')->name('showsession')->middleware('auth');;
+
+Auth::routes();
