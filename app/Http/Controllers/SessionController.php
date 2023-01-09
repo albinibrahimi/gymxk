@@ -6,6 +6,7 @@ use App\Models\Session;
 use App\Models\Part;
 use App\Models\Muscle;
 use Illuminate\Http\Request;
+use DB;
 
 class SessionController extends Controller
 {
@@ -39,7 +40,7 @@ class SessionController extends Controller
      */
     public function store(Request $request, $id)
     {
-        $date = date('y-m-d');
+        $date = date('d-m-y');
         $input = $request->all();
         $input['partid'] = $id;
         $input['date'] = $date;
@@ -59,6 +60,24 @@ class SessionController extends Controller
     public function show(Part $part)
     {
         //
+    }
+
+    public function showsessions()
+    {
+        $sessions = Session::all()->unique('date');
+
+        return view('showsessions', compact('sessions'));
+    }
+
+    public function showsession($date)
+    {
+        $session = DB::table('sessions')
+        ->join('parts', 'sessions.partid', '=', 'parts.id')
+        ->select('sessions.*', 'parts.name','parts.image')
+        ->where('date', '=', $date)
+        ->get();
+
+        return view('showsession', compact('session'));
     }
 
     /**

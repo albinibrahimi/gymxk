@@ -67,7 +67,7 @@ class MuscleController extends Controller
     {   
         $muscle = Muscle::find($id);
 
-        $parts = $muscle ->parts;
+        $parts = $muscle->parts;
 
         
         return view('show', compact('parts'));

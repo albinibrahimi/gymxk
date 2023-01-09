@@ -17,4 +17,9 @@ class Part extends Model
     {
         return $this->belongsTo(Muscle::class);
     }
+
+    public function session()
+    {
+        return $this->belongsTo(Session::class, 'partid');
+    }
 }

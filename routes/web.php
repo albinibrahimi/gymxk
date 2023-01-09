@@ -33,3 +33,7 @@ Route::get('show/{id}', 'MuscleController@show')->name('show');
 Route::get('addsession/{id}', 'SessionController@index')->name('addsession');
 
 Route::post('storesession/{id}', 'SessionController@store')->name('storesession');
+
+Route::get('showsessions/', 'SessionController@showsessions')->name('showsessions');
+
+Route::get('showsession/{date}', 'SessionController@showsession')->name('showsession');

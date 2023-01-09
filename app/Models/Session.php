@@ -13,4 +13,9 @@ class Session extends Model
         'weight', 'reps', 'partid','date'
     ];
     public $timestamps = false;
+
+    public function parts()
+    {
+        return $this->hasMany(Part::class,'id');
+    }
 }
