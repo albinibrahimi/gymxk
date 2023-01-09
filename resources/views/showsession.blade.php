@@ -4,6 +4,9 @@
 
     <table class="table table-bordered">
         <tr>
+        <h5 class="text-center">Ushtrimet e datës: {{ request()->date }}</h1>
+        </tr>
+        <tr>
             <th>Weight</th>
             <th>Reps</th>
             <th>Exercise</th>
