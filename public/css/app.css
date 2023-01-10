@@ -1,0 +1,12 @@
+body{
+    background: #F3F3F3;
+}
+.muscle-data{
+    background: #F8F8F8;
+    border-radius: 0.5rem;
+}
+
+a:link{
+    text-decoration: none;
+    color:black
+}

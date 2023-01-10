@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h1>Muskujt</h1>
+                <h2 class="text-center">Zgjedh muskulin</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{url('create')}}">Shto muskulin</a>
@@ -19,21 +19,16 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-    <table class="table table-bordered">
-        <tr>
-            <th>ID</th>
-            <th>Foto</th>
-            <th>Emri</th>
-            <th>Selekto</th>
-        </tr>
-        @foreach ($muscles as $muscle)
-       <tr>
-            <td>{{$muscle->id}}
-            <td><img src="/images/{{$muscle->image}}" width="100px"></td>
-            <td>{{$muscle->name}}</td>
-            <td> <a class="btn btn-info" href="{{ route('show',$muscle->id) }}">Show</a></td>
-       </tr>
-       @endforeach
-    </table>
-
+  <div class="row">
+  @foreach ($muscles as $muscle)
+    <div class="col-6 mt-5 justify-content-center d-flex">
+        <div class="muscle-data text-center pt-4 pb-3" style="width: fit-content;">
+    <a href="{{ route('show',$muscle->id) }}">
+        <img src="/images/{{$muscle->image}}" width="200px">
+        <h5 class="mt-2">{{$muscle->name}}</h5>
+    </a>
+    </div>
+    </div>
+    @endforeach
+  </div>
 @endsection

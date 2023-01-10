@@ -17,10 +17,9 @@ class MuscleController extends Controller
      */
     public function index()
     {
-            $muscles = Muscle::latest()->paginate(5);
+            $muscles = Muscle::all();
 
-            return view('index', compact('muscles'))
-            ->with('i', (request()->input('page',1) -1) *5);
+            return view('index', compact('muscles'));
         
     }
 

@@ -1,51 +1,33 @@
 @extends('app')
   
-@section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2> Show Product</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ url('/') }}"> Back</a>
-            </div>
-        </div>
-    </div>
-      
+@section('content')      
     <div class="row">  
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Name:</strong>
-                {{ $choosenpart->name }}
-            </div>
-        </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 d-flex justify-content-center">
             <div class="form-group">
-                <strong>Image:</strong>
-                <img src="/images/{{ $choosenpart->image }}" width="500px">
+                <img src="/images/{{ $choosenpart->image }}" width="400px">
             </div>
         </div>
     </div>
 
-    <form action="{{ route('storesession',$choosenpart->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('storesession',$choosenpart->id) }}" method="POST" enctype="multipart/form-data" class="mb-5">
     @csrf
      
      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
             <div class="form-group">
-                <strong>Weight:</strong>
-                <input type="text" name="weight" class="form-control" placeholder="Weight">
+                <strong>Pesha:</strong>
+                <input type="text" name="weight" class="form-control" placeholder="KG">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
             <div class="form-group">
-                <strong>Reps:</strong>
-                <input type="text" name="reps" class="form-control" placeholder="Reps">
+                <strong>Përsëritje:</strong>
+                <input type="text" name="reps" class="form-control" placeholder="Numër">
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="col-xs-12 col-sm-12 col-md-12 text-center mt-3">
+                <button type="submit" class="btn btn-primary">Save</button>
         </div>
     </div>
       
