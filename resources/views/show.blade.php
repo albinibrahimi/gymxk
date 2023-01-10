@@ -1,6 +1,9 @@
 @extends('app')
   
 @section('content')
+
+                <h2 class="text-center">Zgjedh muskulin</h2>
+
     <div class="row">
   @foreach ($parts as $part)
     <div class="col-6 mt-5 justify-content-center d-flex">

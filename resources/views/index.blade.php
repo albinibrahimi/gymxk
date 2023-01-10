@@ -21,7 +21,7 @@
     @endif
   <div class="row">
   @foreach ($muscles as $muscle)
-    <div class="col-6 mt-5 justify-content-center d-flex">
+    <div class="col-6 mt-3 justify-content-center d-flex">
         <div class="muscle-data text-center pt-4 pb-3" style="width: fit-content;">
     <a href="{{ route('show',$muscle->id) }}">
         <img src="/images/{{$muscle->image}}" width="200px">
