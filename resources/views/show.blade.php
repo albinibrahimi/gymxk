@@ -2,7 +2,7 @@
   
 @section('content')
 
-                <h2 class="text-center">Zgjedh muskulin</h2>
+                <h2 class="text-center">Zgjedh ushtrimin</h2>
 
     <div class="row">
   @foreach ($parts as $part)
