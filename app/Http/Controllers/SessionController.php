@@ -66,10 +66,8 @@ class SessionController extends Controller
 
     public function showsessions()
     {
-        $sessions = DB::table('sessions')
-        ->where('userid','=',Auth::id())
-        ->get()
-        ->keyBy('date');
+        $sessions = Session::select('date')->where('userid', '=', Auth::id())->distinct('date')->paginate(6);
+        ;
 
         return view('showsessions', compact('sessions'));
     }

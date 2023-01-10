@@ -24,6 +24,8 @@ Route::get('/create', 'MuscleController@create')->name('create')->middleware('au
 
 Route::get('/createpart', 'PartController@create')->name('createpart')->middleware('auth');;
 
+Route::get('/admin', 'HomeController@admin')->name('admin')->middleware('auth');;
+
 Route::post('store/', 'MuscleController@store')->name('store')->middleware('auth');;
 
 Route::post('storepart/', 'PartController@store')->name('storepart')->middleware('auth');;

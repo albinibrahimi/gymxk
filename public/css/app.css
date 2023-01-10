@@ -10,3 +10,17 @@ a:link{
     text-decoration: none;
     color:black
 }
+
+.page-link{
+    background-color: #dc3545;
+    border: none;
+    color: white;
+}
+
+.active>.page-link, .page-link.active{
+    background: black;
+}
+
+.page-link:hover{
+    color: black;
+}

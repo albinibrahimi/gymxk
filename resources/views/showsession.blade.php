@@ -2,24 +2,28 @@
 
 @section('content')
 
-    <table class="table table-bordered">
-        <tr>
-        <h5 class="text-center">Ushtrimet e datës: {{ request()->date }}</h1>
-        </tr>
-        <tr>
-            <th>Weight</th>
-            <th>Reps</th>
-            <th>Exercise</th>
-            <td>Image</td>
-        </tr>
-        @foreach ($session as $session)
-       <tr>
-            <td>{{$session->weight}}</td>
-            <td>{{$session->reps}}</td>
-            <td>{{$session->name}}</td>
-            <td><img src="/images/{{$session->image}}" width="100px"></td>
-       </tr>
-       @endforeach
-    </table>
+ 
+
+    <table class="table table-striped table-dark text-center align-middle">
+  <thead>
+    <tr>
+      <th scope="col">Ushtrimi</th>
+      <th scope="col">Emri</th>
+      <th scope="col">Pesha</th>
+      <th scope="col">Përsëritje</th>
+    </tr>
+  </thead>
+  <tbody>
+  @foreach ($session as $session)
+    <tr>
+      <td><img src="/images/{{$session->image}}" width="100px"></td>
+      <td>{{$session->name}}</td>
+      <td>{{$session->weight}} KG</td>
+      <td>{{$session->reps}}</td>
+    </tr>
+    @endforeach
+  </tbody>
+</table>
+
 
 @endsection
