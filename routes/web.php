@@ -40,4 +40,6 @@ Route::get('showsessions/', 'SessionController@showsessions')->name('showsession
 
 Route::get('showsession/{date}', 'SessionController@showsession')->name('showsession')->middleware('auth');;
 
-Auth::routes();
+Auth::routes(
+    ['verify' => true]
+);
