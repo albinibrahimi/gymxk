@@ -16,7 +16,7 @@
     </tr>
     @empty
        <tr>
-            <td class="p-0"><p class="bg-danger">Ske ushtru kurr!</p></td>
+            <td>Ske ushtru kurr!</td>
        </tr>
        @endforelse
   </tbody>
