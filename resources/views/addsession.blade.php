@@ -9,7 +9,15 @@
             </div>
         </div>
     </div>
-
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <form action="{{ route('storesession',$choosenpart->id) }}" method="POST" enctype="multipart/form-data" class="mb-5">
     @csrf
      
@@ -32,12 +40,5 @@
     </div>
       
 </form>
-<ul class="error">
-        @foreach($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-
-
 
 @endsection
