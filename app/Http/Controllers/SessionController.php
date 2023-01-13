@@ -41,6 +41,17 @@ class SessionController extends Controller
      */
     public function store(Request $request, $id)
     {
+        $request->validate([
+            'weight' => 'numeric|required',
+            'reps' => 'numeric|required',
+        ],[
+            'weight.required' => 'Pesha është e domosdoshme.',
+            'weight.numeric' => 'Pesha mund të jetë vetëm numër.',
+            'reps.required' => 'Përsëritjet janë të domosdoshme.',
+            'reps.numeric' => 'Përsëritjet mund të jenë vetëm numra.',
+        ]
+        
+        );
         $date = date('d-m-y');
         $input = $request->all();
         $input['partid'] = $id;
